@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insertar Audio</title>
+  </head>
+  <body>
+    <p>Insertar Audio</p>
+    <audio controls preload="auto|metadata|none" autoload loop>
+      <source
+        src="https://lineadecodigo.com/recursos/audio/mimusica.mp3"
+        type="audio/mpeg"
+      />
+      <source src="sonidos/archivo.ogg" type="audio/ogg" />
+      <source src="ruta/archivo.wav" type="audio/wav" />
+      Lo que pongas aquí se muestra si el navegador no soporta la etiqueta
+      audio.
+    </audio>
+
+    <!-- 
+        ¿Qué pasará con el sonido según el siguiente código?
+        
+    <audio src="https://lineadecodigo.com/recursos/audio/mimusica.mp3" autoplay="true" loop="true">
+        Tu navegador no soporta el elemento <code>audio</code>.
+    </audio>
+
+    No pasará nada
+     -->
+
+    <!-- <script src="insertarAudio.js"></script> -->
+  </body>
+</html>

@@ -54,10 +54,11 @@ for(l=0; l < lineas; l++){
 
 function dibujarLinea(color, xInicial, yInicial, xFinal, yFinal) {
     lienzo.beginPath();
-    // lienzo.strokerStyle = color;
     lienzo.strokeStyle = color;
     lienzo.moveTo(xInicial, yInicial);
     lienzo.lineTo(xFinal, yFinal);
     lienzo.stroke();
     lienzo.closePath();
 }
+
+
