@@ -1,37 +1,75 @@
 var vp = document.getElementById("villaplatzi");
 var papel = vp.getContext("2d");
-var mapa = "tile.png";
 
-var fondo = new Image();
-fondo.src = mapa;
-fondo.addEventListener("load", dibujarFondo);
-
-var vaca = new Image();
-vaca.src = "vaca.png";
-vaca.addEventListener("load", dibujarVaca);
-
-var cerdo = new Image();
-cerdo.src = "cerdo.png";
-cerdo.addEventListener("load", dibujarCerdo);
-
-var pollo = new Image();
-pollo.src = "pollo.png";
-pollo.addEventListener("load", dibujarPollo);
-
-function dibujarFondo() {
-    papel.drawImage(fondo, 0, 0);
+var fondo = {
+    url: "tile.png",
+    cargaOk: false
 }
 
-function dibujarVaca() {
-    papel.drawImage(vaca, 10, 10);
+var vaca = {
+    url: "vaca.png",
+    cargaOk: false
 }
 
-function dibujarCerdo() {
-    papel.drawImage(cerdo, 10, 300);
+var cerdo = {
+    url: "cerdo.png",
+    cargaOk: false
 }
 
-function dibujarPollo() {
-    papel.drawImage(pollo, 300, 150);
+var pollo = {
+    url: "pollo.png",
+    cargaOk: false
+}
+
+fondo.imagen = new Image();
+fondo.imagen.src = fondo.url;
+fondo.imagen.addEventListener("load", cargarFondo);
+
+vaca.imagen = new Image();
+vaca.imagen.src = vaca.url;
+vaca.imagen.addEventListener("load", cargarVaca);
+
+cerdo.imagen = new Image();
+cerdo.imagen.src = cerdo.url;
+cerdo.imagen.addEventListener("load", cargarCerdo);
+
+pollo.imagen = new Image();
+pollo.imagen.src = pollo.url;
+pollo.imagen.addEventListener("load", cargarPollo);
+
+function cargarFondo() {
+    fondo.cargaOk = true;
+    dibujar();
+}
+
+function cargarVaca() {
+    vaca.cargaOk = true;
+    dibujar();
+}
+
+function cargarCerdo() {
+    cerdo.cargaOk = true;
+    dibujar();
+}
+
+function cargarPollo() {
+    pollo.cargaOk = true;
+    dibujar();
+}
+
+function dibujar() {
+    if (fondo.cargaOk) {
+        papel.drawImage(fondo.imagen, 0, 0);
+    }
+    if (vaca.cargaOk){
+        papel.drawImage(vaca.imagen, 100, 100);
+    }
+    if (cerdo.cargaOk){
+        papel.drawImage(cerdo.imagen, 10, 300);
+    }
+    if (pollo.cargaOk){
+        papel.drawImage(pollo.imagen, 300, 150);
+    }
 }
 
 function aleatorio(min, max) {
